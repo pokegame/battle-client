@@ -1,9 +1,24 @@
 import * as React from 'react';
+import dimensions from '../data/dimensions';
 
-export const PokemonSpriteFront = ({species, className}) => (
-  <img className={className} src={`http://www.pokestadium.com/sprites/xy/${species.trim().toLowerCase()}.gif`} />
-);
+const PokemonSprite = ({species, facing}) => {
+  if (facing !== 'front' && facing !== 'back') {
+    throw new Error('Facing must be front or back.');
+  }
 
-export const PokemonSpriteBack = ({species, className}) => (
-  <img className={className} src={`http://www.pokestadium.com/sprites/xy/back/${species.trim().toLowerCase()}.gif`} />
-);
+  const props = {
+    style: {
+      width: dimensions[species][facing].w,
+      height: dimensions[species][facing].h,
+    },
+    src: facing === 'front' ?
+      `http://www.pokestadium.com/sprites/xy/${species.trim().toLowerCase()}.gif` :
+      `http://www.pokestadium.com/sprites/xy/back/${species.trim().toLowerCase()}.gif`
+  };
+
+  return (
+    <img {...props} />
+  );
+};
+
+export default PokemonSprite;
