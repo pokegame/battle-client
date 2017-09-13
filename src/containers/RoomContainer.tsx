@@ -4,14 +4,15 @@ import * as Protocol from '../constants';
 
 export interface Props {
   socket: SocketIOClient.Socket;
+  userId: string;
   roomId: string;
 }
 
 export interface State {
   rooms: {
     [roomId: string]: {
-      battleState?: {};
-      choices?: {};
+      battleState?: any;
+      choices?: any;
     }
   };
 }
@@ -33,7 +34,7 @@ export default class RoomContainer extends React.Component<Props, State> {
     const roomId = data.room;
     const action = data.payload.type;
 
-    const updates = 
+    const updates =
       action === Protocol.INITIAL_BATTLE_STATE ||
       action === Protocol.UPDATE_BATTLE_STATE ? { battleState: data.payload.battleState } :
       action === Protocol.REQUEST_DECISION ? { choices: data.payload.choices } :
@@ -73,11 +74,16 @@ export default class RoomContainer extends React.Component<Props, State> {
     const room = this.state.rooms[activeRoom];
 
     return (
-      <div className="App">
-        Container component ({activeRoom}):
-
+      <div className="battle">
         {room && room.battleState && (
-          <BattleScene battleState={room.battleState} />
+          <BattleScene
+            battleState={room.battleState}
+            player={(
+              room.battleState.actors.includes(this.props.userId) ?
+              this.props.userId :
+              room.battleState.actors[0]
+            )}
+          />
         )}
       </div>
     );
