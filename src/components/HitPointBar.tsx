@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const HitPointBar = ({maxHp, currentHp}) => {
-  const percentage = ( maxHp / currentHp ) * 100;
+  const percentage = ( currentHp / maxHp ) * 100;
   const style = {
     width: `${percentage}%`
   };
