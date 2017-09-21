@@ -13,6 +13,16 @@ const TextBox = ({ options }) => {
     <h4 className={optionsClassName[index]} onClick={choice.onClick}>{choice.text}</h4>
   ));
 
+  if (choices.length === 0) {
+    return (
+      <div>
+        <div className="battle-text">
+          Waiting the opponent's decision...
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="battle-text text-box-left">
