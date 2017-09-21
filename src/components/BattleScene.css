@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
+html, body {
+    height: 100%;
+    background: linear-gradient( rgba(24%, 48%, 80%, 0.9), rgba(24%, 48%, 80%, 0.9)), url("/images/background.jpg");
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.battle-scene {
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 3%;
+    width: 600px;
+    height: 420px;
+    background:url(/images/battle-background/default.png) top center no-repeat;
+    z-index: 1;
+    box-shadow:0 0 0px 10px rgba(0,0,0,0.1);;
+    border-radius:8px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.box-top-left {
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    border-radius: 10px;
+    top: 8%;
+    left: 8%;
+    background: #F8F8D8;
+    border: 6px solid #506860;
+}
+.hp-bar-top {
+    position: absolute;
+    bottom: 16%;
+    height: 20%;
+    width: 70%;
+    left: 10%;
+    border-radius: 20px;
+    background: grey;
+    opacity: 0.5;
+}
+.hp-bar-bottom {
+    position: absolute;
+    bottom: 32%;
+    height: 20%;
+    width: 70%;
+    left: 10%;
+    border-radius: 20px;
+    background: grey;
+    opacity: 0.5;
+}
+.hp-bar-fill {
+    position: absolute;
+    height: 100%;
+    border-radius: 20px;
+    background: #FF8800;
+}
+.box-top-right {
+    position: absolute;
+    bottom: 60%;
+    right: 15%;
+}
+.box-bottom-left {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+}
+.box-bottom-right {
+    position: absolute;
+    width: 38%;
+    height: 20%;
+    border-radius: 10px;
+    bottom: 20%;
+    right: 8%;
+    background: #F8F8D8;
+    border: 6px solid #506860;
+    z-index: 2;
+}
+.pokemon-name {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 5%;
+    opacity: 0.7;
+    font-size: 18px;
+    font-family: "Roboto Condensed";
+    text-transform: capitalize;
+}
+.level {
+    position: absolute;
+    right: 8%;
+    top: -11%;
+    opacity: 0.7;
+    font-size: 16px;
+    font-family: "Roboto Condensed";
+}
+.hp {
+    position: absolute;
+    right: 8%;
+    bottom: -20%;
+    opacity: 0.7;
+    font-size: 16px;
+    font-family: "Roboto Condensed";
+}
+
+@media all and (max-width: 600px) {
+    .battle-scene {
+        position: relative;
+        margin: auto;
+        display: block;
+        margin-top: 3%;
+        width: 400px;
+        height: 280px;
+        background: #000000;
+        z-index: 1;
+    }
+    .title {
+        position: absolute;
+        top: -33%;
+        left: 7.5%;
+        color: white;
+        text-align: center;
+        font-size: 22px;
+        text-transform: uppercase;
+        font-family: "Roboto Condensed";
+    }
+    .pokemon {
+        text-align: left;
+        margin-left: 11%;
+        margin-top: 5%;
+        opacity: 0.7;
+        font-size: 14px;
+        font-family: "Roboto Condensed";
+    }
+    .level {
+        position: absolute;
+        right: 5%;
+        top: -13%;
+        opacity: 0.7;
+        font-size: 10px;
+        font-family: "Roboto Condensed";
+    }
+    .hp {
+        position: absolute;
+        right: 8%;
+        bottom: -20%;
+        opacity: 0.7;
+        font-size: 11px;
+        font-family: "Roboto Condensed";
+    }
+}
